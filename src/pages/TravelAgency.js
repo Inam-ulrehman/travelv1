@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import TravelAgencyComponent from '../components/TravelAgencyComponent'
 
 const TravelAgency = () => {
-  const { list, isLoading, readMoreAction } = useSelector((state) => {
+  const { list, isLoading } = useSelector((state) => {
     return state.travelAgency
   })
   if (isLoading) {

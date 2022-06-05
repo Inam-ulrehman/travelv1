@@ -10,7 +10,6 @@ const initialState = {
 const MobileNaveBar = () => {
   const [values, setValues] = useState(initialState)
 
-  const { showMenu } = values
   // handle button
   const handleMenu = () => {
     setValues({ ...values, showMenu: !values.showMenu })

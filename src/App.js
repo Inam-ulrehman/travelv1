@@ -10,6 +10,7 @@ const App = () => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(handleTravelAgency())
+    // eslint-disable-next-line
   }, [])
   return (
     <BrowserRouter>
