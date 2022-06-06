@@ -1,15 +1,21 @@
-import React from 'react'
+import { React, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { readMoreAction } from '../feature/TravelAgency/travelAgencySlice'
+import { getTravelCartId } from '../feature/cart/cartSlice'
 
 const TravelAgencyComponent = ({ available, id, image, info, name, price }) => {
+  const [value, setValue] = useState(false)
   const dispatch = useDispatch()
-  const { readMore } = useSelector((state) => state.travelAgency)
 
   // handleButton
   const handleButton = (e) => {
-    dispatch(readMoreAction())
+    setValue(!value)
+  }
+
+  // const handleBookNow //
+  const handleBookNow = (id) => {
+    dispatch(getTravelCartId({ available, id, image, info, name, price }))
   }
 
   return (
@@ -30,20 +36,25 @@ const TravelAgencyComponent = ({ available, id, image, info, name, price }) => {
 
           <div className='paragraph-reading'>
             <p>
-              {readMore ? info : `${info.substring(0, 100)}`}{' '}
+              {`${value ? info : info.substring(0, 100)}`}
               <button
                 className='readButton'
                 onClick={handleButton}
                 type='button'
               >
-                {readMore ? 'Read Less.' : 'Read More...'}
-              </button>{' '}
+                {`${value ? 'ReadLess....' : 'ReadMore....'}`}
+              </button>
             </p>
           </div>
           <div className='btn-container'>
-            <button type='btn' className='btn btn-block'>
+            <Link
+              onClick={() => handleBookNow(id)}
+              to='/cart'
+              type='btn'
+              className='btn btn-block'
+            >
               Book Now
-            </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -126,6 +137,9 @@ const Wrapper = styled.section`
     color: var(--primary-5);
     background: transparent;
     cursor: pointer;
+  }
+  .hide {
+    display: none;
   }
 `
 export default TravelAgencyComponent

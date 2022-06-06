@@ -1,3 +1,6 @@
+import { AiFillHome, AiOutlineShoppingCart } from 'react-icons/ai'
+import { FaSignInAlt } from 'react-icons/fa'
+import { SiYourtraveldottv } from 'react-icons/si'
 const people = [
   {
     id: 1,
@@ -43,26 +46,25 @@ const menu = [
     id: 1,
     path: '/',
     name: 'Home',
+    icon: <AiFillHome />,
   },
   {
     id: 2,
-    path: 'testing',
-    name: 'Error',
+    path: '/login',
+    name: 'Login',
+    icon: <FaSignInAlt />,
+  },
+  {
+    id: 3,
+    path: '/travel',
+    name: 'Bookings',
+    icon: <SiYourtraveldottv />,
   },
   {
     id: 4,
-    path: '/travel',
-    name: 'TravelAgency',
-  },
-  {
-    id: 5,
-    path: '/travel',
-    name: 'TravelAgency',
-  },
-  {
-    id: 6,
-    path: '/travel',
-    name: 'TravelAgency',
+    path: '/cart',
+    name: 'Cart',
+    icon: <AiOutlineShoppingCart />,
   },
 ]
 

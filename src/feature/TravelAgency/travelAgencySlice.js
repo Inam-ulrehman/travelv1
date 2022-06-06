@@ -4,7 +4,6 @@ import { toast } from 'react-toastify'
 const initialState = {
   isLoading: true,
   list: [],
-  readMore: false,
 }
 
 // Axios .Get === TravelAgency Api ====
@@ -23,11 +22,7 @@ export const handleTravelAgency = createAsyncThunk(
 const travelAgencySlice = createSlice({
   name: 'travelAgency',
   initialState,
-  reducers: {
-    readMoreAction: (state) => {
-      state.readMore = !state.readMore
-    },
-  },
+
   extraReducers: {
     [handleTravelAgency.pending]: (state) => {
       state.isLoading = true
@@ -42,7 +37,5 @@ const travelAgencySlice = createSlice({
     },
   },
 })
-
-export const { readMoreAction } = travelAgencySlice.actions
 
 export default travelAgencySlice.reducer

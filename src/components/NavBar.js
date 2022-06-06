@@ -8,10 +8,10 @@ const NavBar = () => {
     <Wrapper>
       <div className='nav-container'>
         {menu.map((list) => {
-          const { id, name, path } = list
+          const { id, name, path, icon } = list
           return (
             <NavLink key={id} to={path}>
-              {name}
+              {icon} {name}
             </NavLink>
           )
         })}
@@ -24,7 +24,8 @@ const Wrapper = styled.nav`
   @media (max-width: 668px) {
     display: none;
   }
-
+  position: fixed;
+  top: 0;
   .nav-container {
     a {
       margin-right: 1rem;

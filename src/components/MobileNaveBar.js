@@ -30,7 +30,7 @@ const MobileNaveBar = () => {
           }
         >
           {menu.map((link) => {
-            const { id, path, name } = link
+            const { id, path, name, icon } = link
             return (
               <NavLink
                 className={values.showMenu ? '' : 'hide-nav hide-navv'}
@@ -38,7 +38,7 @@ const MobileNaveBar = () => {
                 key={id}
                 to={path}
               >
-                {name}
+                {icon} {name}
               </NavLink>
             )
           })}
